@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockvesting Payout - Forex & Crypto Trading Rebate Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --border: #e2e8f0;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 50px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .highlight {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+        }
+        
+        .highlight-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #0da271;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-warning {
+            background-color: var(--warning);
+        }
+        
+        .btn-warning:hover {
+            background-color: #d97706;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Sections */
+        .section {
+            background-color: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        
+        /* How It Works */
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #f8fafc;
+            border-radius: 10px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* Broker/Exchange Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .card-header .manual-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--warning);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .card-detail:last-child {
+            border-bottom: none;
+        }
+        
+        .card-label {
+            font-weight: 600;
+            color: var(--gray);
+        }
+        
+        .card-value {
+            color: var(--dark);
+            font-weight: 500;
+            text-align: right;
+        }
+        
+        .ref-code {
+            background-color: #f0f9ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .ref-code .label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .ref-code .code {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        .important-note {
+            background-color: #fff7ed;
+            border-left: 4px solid var(--warning);
+            padding: 12px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        
+        .important-note i {
+            color: var(--warning);
+            margin-right: 8px;
+        }
+        
+        /* Calculator */
+        .calculator {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .result {
+            background-color: #f0f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+            border: 2px solid var(--primary);
+        }
+        
+        .result h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        /* Support */
+        .support-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .support-card {
+            background-color: #f0f9ff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+        }
+        
+        .support-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Disclaimer */
+        .disclaimer {
+            background-color: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 20px;
+                width: 100%;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .highlight {
+                gap: 15px;
+            }
+            
+            .highlight-item {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Hide sections initially */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6283898770368" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-chart-line fa-lg" style="color: var(--primary);"></i>
+                    <h1>Blockvesting<span>Payout</span></h1>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#" class="nav-link" data-target="home">Home</a>
+                    <a href="#" class="nav-link" data-target="how-it-works">Cara Kerja</a>
+                    <a href="#" class="nav-link" data-target="forex-brokers">Forex Brokers</a>
+                    <a href="#" class="nav-link" data-target="crypto-exchanges">Crypto Exchanges</a>
+                    <a href="#" class="nav-link" data-target="calculator">Kalkulator Rebate</a>
+                    <a href="#" class="nav-link" data-target="support">Customer Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h2>Blockvesting Payout</h2>
+                <p><em>Forex & Crypto Trading Rebate Platform</em></p>
+                <p>Dapatkan hingga <strong>90% rebate</strong> dari komisi trading Anda. Tanpa biaya tambahan, langsung ke akun trading Anda.</p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn btn-primary" data-target="forex-brokers">Forex Brokers</a>
+                    <a href="#" class="btn btn-outline" data-target="crypto-exchanges" style="margin-left: 15px;">Crypto Exchanges</a>
+                    <a href="#" class="btn btn-outline" data-target="calculator" style="margin-left: 15px;">Rebate Calculator</a>
+                </div>
+                
+                <div class="highlight">
+                    <div class="highlight-item">
+                        <i class="fas fa-percentage"></i>
+                        <h3>Rebate hingga 90%</h3>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Multi Broker & Exchange</h3>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Tanpa Biaya Tambahan</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="page-section">
+            <div class="section">
+                <h2 class="section-title">Cara Kerja Rebate</h2>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Pilih Broker/Exchange</h3>
+                        <p>Pilih broker forex atau exchange crypto dari daftar kami yang sudah terverifikasi.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Daftar dengan REF CODE</h3>
+                        <p>Pastikan REF CODE tercantum saat mendaftar melalui link yang kami sediakan.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Trading seperti biasa</h3>
+                        <p>Lakukan trading sesuai dengan strategi dan kebutuhan Anda di platform broker/exchange.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Dapatkan Rebate 90%</h3>
+                        <p>Dapatkan hingga 90% dari komisi trading dikembalikan ke akun Anda secara otomatis.</p>
+                    </div>
+                </div>
+                
+                <div class="important-note" style="margin-top: 40px;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <strong>PENTING:</strong> Pastikan REF CODE tercantum saat mendaftar agar Anda mendapatkan rebate. Periksa kembali sebelum menyelesaikan pendaftaran.
+                </div>
+            </div>
+        </section>
+        
+        <!-- Forex Brokers Section -->
+        <section id="forex-brokers" class="page-section">
+            <div class="section">
+                <h2 class="section-title">Forex Brokers</h2>
+                <p style="text-align: center; margin-bottom: 30px;">Pilih broker forex terpercaya dan dapatkan rebate hingga 90% dari komisi trading Anda.</p>
+                
+                <div class="cards" id="forexCards">
+                    <!-- Cards akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Crypto Exchanges Section -->
+        <section id="crypto-exchanges" class="page-section">
+            <div class="section">
+                <h2 class="section-title">Crypto Exchanges</h2>
+                <p style="text-align: center; margin-bottom: 30px;">Daftar di exchange crypto ternama dan dapatkan komisi afiliasi hingga 50%.</p>
+                
+                <div class="cards" id="cryptoCards">
+                    <!-- Cards akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Calculator Section -->
+        <section id="calculator" class="page-section">
+            <div class="section">
+                <h2 class="section-title">Kalkulator Estimasi Rebate</h2>
+                <p style="text-align: center; margin-bottom: 30px;">Hitung estimasi rebate yang akan Anda terima berdasarkan broker dan volume trading.</p>
+                
+                <div class="calculator">
+                    <div class="form-group">
+                        <label for="brokerSelect">Pilih Broker</label>
+                        <select id="brokerSelect" class="form-control">
+                            <!-- Options akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lotAmount">Jumlah Lot (per bulan)</label>
+                        <input type="number" id="lotAmount" class="form-control" min="1" max="1000" value="10">
+                    </div>
+                    
+                    <button id="calculateBtn" class="btn btn-primary" style="width: 100%;">Hitung Estimasi Rebate</button>
+                    
+                    <div class="result" id="result" style="display: none;">
+                        <h3>Estimasi Rebate Bulanan</h3>
+                        <div class="result-value" id="rebateAmount">$0</div>
+                        <p id="resultDetails">Komisi total: $0 | Rebate (90%): $0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Customer Support Section -->
+        <section id="support" class="page-section">
+            <div class="section">
+                <h2 class="section-title">Customer Support</h2>
+                <p style="text-align: center; margin-bottom: 40px;">Tim support kami siap membantu Anda 7 hari seminggu melalui WhatsApp.</p>
+                
+                <div class="support-cards">
+                    <div class="support-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>CS 1</h3>
+                        <p>+62 838-9877-0368</p>
+                        <a href="https://wa.me/6283898770368" class="btn" target="_blank" style="margin-top: 15px;">Hubungi via WhatsApp</a>
+                    </div>
+                    
+                    <div class="support-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>CS 2</h3>
+                        <p>+62 822-1177-3303</p>
+                        <a href="https://wa.me/6282211773303" class="btn" target="_blank" style="margin-top: 15px;">Hubungi via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <h3>Disclaimer</h3>
+                <p>Trading melibatkan risiko. Blockvesting Payout bukan broker atau exchange. Jumlah rebate tergantung pada kebijakan broker atau exchange. Pastikan Anda membaca dan memahami semua persyaratan sebelum memulai trading.</p>
+                <p style="margin-top: 10px;"><strong>PENTING:</strong> Pastikan REF CODE tercantum saat mendaftar untuk mendapatkan rebate. Hubungi customer support jika mengalami kendala.</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-chart-line fa-lg"></i>
+                <h1>Blockvesting<span style="color: var(--accent);">Payout</span></h1>
+            </div>
+            
+            <p style="margin-top: 20px; opacity: 0.9;">Forex & Crypto Trading Rebate Platform</p>
+            
+            <div class="footer-links">
+                <a href="#" data-target="home">Home</a>
+                <a href="#" data-target="how-it-works">Cara Kerja</a>
+                <a href="#" data-target="forex-brokers">Forex Brokers</a>
+                <a href="#" data-target="crypto-exchanges">Crypto Exchanges</a>
+                <a href="#" data-target="calculator">Kalkulator</a>
+                <a href="#" data-target="support">Support</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Blockvesting Payout. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Data broker forex (revisi dengan REF CODE)
+        const forexBrokers = [
+            {
+                name: "Markets4You",
+                rebate: "90%",
+                commission: "$12 / lot",
+                refCode: "y78vuh8",
+                link: "https://www.markets4you.online/?affid=y78vuh8",
+                description: "Rebate otomatis setiap minggu",
+                isManual: false
+            },
+            {
+                name: "Exness",
+                rebate: "90%",
+                commission: "$3 / lot",
+                refCode: "razc8rj6vk",
+                link: "https://one.exnessonelink.com/a/razc8rj6vk",
+                description: "Rebate otomatis setiap minggu",
+                isManual: false
+            },
+            {
+                name: "XM",
+                rebate: "90%",
+                commission: "$9 / lot",
+                refCode: "Q6JDG",
+                link: "https://clicks.pipaffiliates.com/c?c=1155782&l=id&p=1",
+                description: "Rebate otomatis setiap minggu",
+                isManual: false
+            },
+            {
+                name: "HFM",
+                rebate: "90%",
+                commission: "$9 / lot",
+                refCode: "30453980",
+                link: "https://hfmtrade-ind.com/?refid=30453980",
+                description: "Rebate otomatis setiap minggu",
+                isManual: false
+            },
+            {
+                name: "ZFX",
+                rebate: "90%",
+                commission: "$8 / lot",
+                refCode: "Z6848549",
+                link: "https://my.zm-area.com/reg?agentnumber=Z6848549",
+                description: "Manual rebate dengan cara di transfer wallet broker to wallet broker",
+                isManual: true
+            }
+        ];
+        
+        // Data crypto exchanges (revisi dengan REF CODE)
+        const cryptoExchanges = [
+            {
+                name: "Binance",
+                rebate: "Komisi afiliasi",
+                commission: "Varies",
+                refCode: "GRO_28502_Y58O1",
+                link: "https://www.bmwweb.biz/referral/earn-together/refer2earn-usdc/claim?hl=id&ref=GRO_28502_Y58O1&utm_source=default",
+                description: "Komisi afiliasi hingga 50%",
+                isManual: false
+            },
+            {
+                name: "Bitget",
+                rebate: "Komisi 50%",
+                commission: "Varies",
+                refCode: "53JKP0 (r4pz)",
+                link: "https://partner.bitgetapp.com/bg/53JKP0",
+                description: "Bagikan 50% komisi dengan referral",
+                isManual: false
+            },
+            {
+                name: "Bybit",
+                rebate: "Komisi 50%",
+                commission: "Varies",
+                refCode: "EX6YKOR",
+                link: "https://www.bybitglobal.com/invite?ref=EX6YKOR",
+                description: "Bagikan 50% komisi dengan referral",
+                isManual: false
+            }
+        ];
+        
+        // Data untuk kalkulator
+        const brokerRates = {
+            "Markets4You": 12,
+            "Exness": 3,
+            "XM": 9,
+            "HFM": 9,
+            "ZFX": 8
+        };
+        
+        // Fungsi untuk mengisi kartu broker forex
+        function populateForexCards() {
+            const container = document.getElementById('forexCards');
+            container.innerHTML = '';
+            
+            forexBrokers.forEach(broker => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-header">
+                        <h3>${broker.name}</h3>
+                        ${broker.isManual ? '<div class="manual-badge">MANUAL REBATE</div>' : ''}
+                    </div>
+                    <div class="card-body">
+                        <div class="ref-code">
+                            <div class="label">REF CODE</div>
+                            <div class="code">${broker.refCode}</div>
+                        </div>
+                        
+                        <div class="important-note">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <strong>Pastikan REF CODE tercantum saat mendaftar</strong>
+                        </div>
+                        
+                        <div class="card-detail">
+                            <span class="card-label">Rebate</span>
+                            <span class="card-value" style="color: var(--accent); font-weight: bold;">${broker.rebate}</span>
+                        </div>
+                        <div class="card-detail">
+                            <span class="card-label">Komisi per Lot</span>
+                            <span class="card-value">${broker.commission}</span>
+                        </div>
+                        <div class="card-detail">
+                            <span class="card-label">Keterangan</span>
+                            <span class="card-value">${broker.description}</span>
+                        </div>
+                        <a href="${broker.link}" target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                            <i class="fas fa-external-link-alt"></i> Daftar dengan REF CODE
+                        </a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        // Fungsi untuk mengisi kartu crypto exchange
+        function populateCryptoCards() {
+            const container = document.getElementById('cryptoCards');
+            container.innerHTML = '';
+            
+            cryptoExchanges.forEach(exchange => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-header">
+                        <h3>${exchange.name}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="ref-code">
+                            <div class="label">REF CODE</div>
+                            <div class="code">${exchange.refCode}</div>
+                        </div>
+                        
+                        <div class="important-note">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <strong>Pastikan REF CODE tercantum saat mendaftar</strong>
+                        </div>
+                        
+                        <div class="card-detail">
+                            <span class="card-label">Rebate/Komisi</span>
+                            <span class="card-value" style="color: var(--accent); font-weight: bold;">${exchange.rebate}</span>
+                        </div>
+                        <div class="card-detail">
+                            <span class="card-label">Komisi</span>
+                            <span class="card-value">${exchange.commission}</span>
+                        </div>
+                        <div class="card-detail">
+                            <span class="card-label">Keterangan</span>
+                            <span class="card-value">${exchange.description}</span>
+                        </div>
+                        <a href="${exchange.link}" target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                            <i class="fas fa-external-link-alt"></i> Daftar dengan REF CODE
+                        </a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        // Fungsi untuk mengisi dropdown kalkulator
+        function populateCalculatorDropdown() {
+            const select = document.getElementById('brokerSelect');
+            select.innerHTML = '';
+            
+            Object.keys(brokerRates).forEach(broker => {
+                const option = document.createElement('option');
+                option.value = broker;
+                option.textContent = broker;
+                select.appendChild(option);
+            });
+        }
+        
+        // Fungsi untuk menghitung rebate
+        function calculateRebate() {
+            const brokerSelect = document.getElementById('brokerSelect');
+            const lotAmount = document.getElementById('lotAmount').value;
+            const resultDiv = document.getElementById('result');
+            const rebateAmount = document.getElementById('rebateAmount');
+            const resultDetails = document.getElementById('resultDetails');
+            
+            if (!brokerSelect.value || !lotAmount || lotAmount <= 0) {
+                alert('Silakan pilih broker dan masukkan jumlah lot yang valid.');
+                return;
+            }
+            
+            const broker = brokerSelect.value;
+            const rate = brokerRates[broker];
+            const totalCommission = rate * lotAmount;
+            const rebate = totalCommission * 0.9; // 90% rebate
+            
+            rebateAmount.textContent = `$${rebate.toFixed(2)}`;
+            resultDetails.textContent = `Komisi total: $${totalCommission.toFixed(2)} | Rebate (90%): $${rebate.toFixed(2)}`;
+            resultDiv.style.display = 'block';
+            
+            // Scroll ke hasil
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Fungsi untuk navigasi antar section
+        function navigateToSection(sectionId) {
+            // Sembunyikan semua section
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Tampilkan section yang dipilih
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Scroll ke section yang dipilih
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Tutup menu mobile jika terbuka
+            document.getElementById('navLinks').classList.remove('active');
+        }
+        
+        // Inisialisasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            // Isi konten
+            populateForexCards();
+            populateCryptoCards();
+            populateCalculatorDropdown();
+            
+            // Event listener untuk navigasi
+            document.querySelectorAll('.nav-link, .footer-links a, .btn[data-target]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-target');
+                    if (target) {
+                        navigateToSection(target);
+                    }
+                });
+            });
+            
+            // Event listener untuk tombol kalkulator
+            document.getElementById('calculateBtn').addEventListener('click', calculateRebate);
+            
+            // Event listener untuk menu mobile
+            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+                document.getElementById('navLinks').classList.toggle('active');
+            });
+            
+            // Inisialisasi dengan home section
+            navigateToSection('home');
+        });
+    </script>
+</body>
+</html>
